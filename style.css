@@ -1,0 +1,337 @@
+@keyframes focus {
+  0% {
+    border-color: #ccc;
+  }
+  50% {
+    border-color: rgba(255, 0, 0, 0);
+  }
+  100% {
+    border-color: #ccc;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+}
+body header, html header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em 1em;
+  background-color: #131921;
+  font-size: 0.8em;
+}
+body header .logo, html header .logo {
+  display: flex;
+  flex-direction: row;
+  width: 33%;
+  align-items: center;
+  color: white;
+  /*h1 {
+
+  }*/
+}
+body header .logo img, html header .logo img {
+  width: 10%;
+  height: auto;
+}
+body header .location, html header .location {
+  display: flex;
+  flex-direction: row;
+  width: 33%;
+  align-items: center;
+  color: white;
+}
+body header .location img, html header .location img {
+  width: 7%;
+  height: auto;
+  margin-right: 1%;
+}
+body header .location .location-store, html header .location .location-store {
+  margin-left: 1%;
+}
+body header .location .location-store h3, html header .location .location-store h3 {
+  color: rgb(186, 183, 183);
+}
+body header .cart, html header .cart {
+  width: 33%;
+}
+body header .cart a, html header .cart a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+body header .cart a button, html header .cart a button {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #E6ECF1;
+  transition: 1s;
+}
+body header .cart a button img, html header .cart a button img {
+  width: 30%;
+  height: auto;
+}
+body header .cart a button p, html header .cart a button p {
+  font-family: "Alcatra", cursive;
+  font-size: 20px;
+  font-weight: 100;
+}
+body header .cart a button:hover, html header .cart a button:hover {
+  scale: 1.05;
+}
+body main, html main {
+  width: 100%;
+}
+body main .homePage, html main .homePage {
+  width: 100%;
+  position: relative;
+  height: 70vh;
+}
+body main .homePage img, html main .homePage img {
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.8);
+}
+body main .homePage-text, html main .homePage-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+body main .homePage-text h3, html main .homePage-text h3 {
+  font-family: "Alcatra", cursive;
+  text-transform: capitalize;
+  font-size: 2em;
+}
+body main .homePage-text p, html main .homePage-text p {
+  font-family: "Alcatra", cursive;
+  font-size: 1.2em;
+}
+body main .search, html main .search {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+}
+body main .search img, html main .search img {
+  width: 100%;
+  height: 100%;
+}
+body main .search form, html main .search form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+body main .search form input, html main .search form input {
+  width: 70%;
+  height: 70%;
+  font-size: 2em;
+  font-family: "Dancing Script", cursive;
+  border-radius: 10px;
+  padding: 1%;
+}
+body main .search form button, html main .search form button {
+  width: 3%;
+  height: 60%;
+  border-radius: 10px;
+  position: relative;
+  left: -4%;
+  top: 5%;
+  background-color: #D8D8D8;
+  cursor: pointer;
+}
+body main .search form button img, html main .search form button img {
+  width: 100%;
+  height: 50%;
+}
+body main .containerStorePage, html main .containerStorePage {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+body main .containerStorePage .containerProducts, html main .containerStorePage .containerProducts {
+  background-color: #fff;
+  padding: 1%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+  width: 70%;
+}
+body main .containerStorePage .containerProducts .product, html main .containerStorePage .containerProducts .product {
+  transition: all 0.4s;
+  padding: 2%;
+  border-radius: 10px;
+  background-color: azure;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+body main .containerStorePage .containerProducts .product img, html main .containerStorePage .containerProducts .product img {
+  width: 40%;
+  height: auto;
+  margin-bottom: 7%;
+}
+body main .containerStorePage .containerProducts .product--info, html main .containerStorePage .containerProducts .product--info {
+  width: 100%;
+}
+body main .containerStorePage .containerProducts .product--info h2, html main .containerStorePage .containerProducts .product--info h2 {
+  margin-bottom: 5%;
+  text-align: start;
+}
+body main .containerStorePage .containerProducts .product--info h3, html main .containerStorePage .containerProducts .product--info h3 {
+  margin-bottom: 5%;
+}
+body main .containerStorePage .containerProducts .product--info p, html main .containerStorePage .containerProducts .product--info p {
+  margin-bottom: 5%;
+  text-align: start;
+}
+body main .containerStorePage .containerProducts .product--info .rating, html main .containerStorePage .containerProducts .product--info .rating {
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+}
+body main .containerStorePage .containerProducts .product--info .rating img, html main .containerStorePage .containerProducts .product--info .rating img {
+  width: 10%;
+  height: auto;
+}
+body main .containerStorePage .containerProducts .product button, html main .containerStorePage .containerProducts .product button {
+  margin: 10px auto;
+  border: none;
+  background-color: black;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body main .containerStorePage .containerProducts .product:hover, html main .containerStorePage .containerProducts .product:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #666;
+}
+body main .containerStorePage .car, html main .containerStorePage .car {
+  border: 1px solid #666;
+  width: 25%;
+  margin-top: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: auto;
+  position: sticky !important;
+  top: 0;
+  transition: 0.3s;
+  margin-right: 2%;
+  /* hidden styles */
+  box-shadow: 0 0 10px #666;
+}
+body main .containerStorePage .car .header-car, html main .containerStorePage .car .header-car {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+body main .containerStorePage .car .car-items, html main .containerStorePage .car .car-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+  position: relative;
+  border-bottom: 1px solid #666;
+  padding: 20px;
+  width: 100%;
+}
+body main .containerStorePage .car .car-items .carItemIndividual, html main .containerStorePage .car .car-items .carItemIndividual {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5%;
+  align-items: center;
+}
+body main .containerStorePage .car .car-items .carItemIndividual img, html main .containerStorePage .car .car-items .carItemIndividual img {
+  width: 10%;
+  height: 10%;
+}
+body main .containerStorePage .car .totalCar, html main .containerStorePage .car .totalCar {
+  background-color: #f3f3f3;
+  padding: 30px;
+}
+body main .containerStorePage .car .totalCar .row, html main .containerStorePage .car .totalCar .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+body main .containerStorePage .car .totalCar .btn-pay, html main .containerStorePage .car .totalCar .btn-pay {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+body main .containerStorePage .car .totalCar .btn-pay:hover, html main .containerStorePage .car .totalCar .btn-pay:hover {
+  scale: 1.05;
+}
+body main .containerStorePage .car:hover, html main .containerStorePage .car:hover {
+  animation: focus 0.5s ease-in-out infinite;
+}
+body footer, html footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #131921;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 100%;
+}
+body footer .footer--message, html footer .footer--message {
+  width: 45%;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body footer .footer--socialMedia, html footer .footer--socialMedia {
+  display: flex;
+  justify-content: center;
+  width: 45%;
+  height: 2.5em;
+}
+body footer .footer--socialMedia img, html footer .footer--socialMedia img {
+  width: 2em;
+  height: auto;
+  margin-left: 1em;
+}/*# sourceMappingURL=style.css.map */
