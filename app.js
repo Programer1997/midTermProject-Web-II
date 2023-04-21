@@ -45,7 +45,15 @@ function addProductToCart (product){
  }
 }
 
+let firstLoad = false;
 
+document.addEventListener("DOMContentLoaded",()=> {
+    if (!firstLoad){
+        getData();
+        firstLoad = true;
+    } 
+
+});
 
 cartButton.addEventListener('click',(event)=>{
     event.preventDefault();
