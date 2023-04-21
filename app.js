@@ -140,6 +140,8 @@ function addProductToPage(cartProducts){
 
     cartProducts.forEach(element=>{
 
+        if (element.length !== 0) {     /////////////////////cambie esto y ya fuincionaba bien 
+
         let priceQtyItem = element.quantify*element.price;
         //console.log(priceQtyItem);
         //console.log(element);
@@ -152,6 +154,7 @@ function addProductToPage(cartProducts){
             <button id = "buttonRemove" value="${element.id}"><i class="fa-solid fa-trash"></i></button>
         </div>
     `;
+        }
     });
 
     containerCar.innerHTML = cardsitem; 
@@ -198,6 +201,8 @@ function getTotalToPay(cart){
 
     cart.forEach(element => {
 
+        if (element.length !== 0) {  /////////////////cambie esto y ya funcionaba bien 
+
         let totalCElement = 0; 
         let quantifyC = 0;
         let priceC = 0;
@@ -214,7 +219,7 @@ function getTotalToPay(cart){
         //console.log(totalCar);
 
         
-
+        }
 
 
     });
@@ -236,13 +241,13 @@ function totalItemsCar(){
 
 }
 function removeItemOfCar (cartsent,index) {
-    cartsent.splice(index,1); //remove the element of the cart , but just the object, aslo we need figure out how eliminated the HTML element
+    cartsent.splice(index,1, ""); //remove the element of the cart , but just the object, aslo we need figure out how eliminated the HTML element
     cart = cartsent;
 
     const containerCarProductsRemoving  = document.querySelector('.car-items');
     const productsCarRemoving = containerCarProductsRemoving.querySelectorAll('.carItemIndividual');
 
-    console.log(productsCarRemoving.length-1);
+    //console.log(productsCarRemoving.length-1);
 
     if (productsCarRemoving.length-1 == 0) {
         cart = [];
@@ -254,6 +259,9 @@ function removeItemOfCar (cartsent,index) {
         //cart.splice(0,cart.length);
 
     }
+
+    getTotalToPay(cart);
+
     console.log(cart);
     /*
     const containerCarTwo = document.querySelector('.car-items');
