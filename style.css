@@ -145,8 +145,8 @@ body main .search form, html main .search form {
   justify-content: center;
 }
 body main .search form input, html main .search form input {
-  width: 70%;
-  height: 70%;
+  width: 30%;
+  height: 50%;
   font-size: 2em;
   font-family: "Dancing Script", cursive;
   border-radius: 10px;
@@ -165,6 +165,13 @@ body main .search form button, html main .search form button {
 body main .search form button img, html main .search form button img {
   width: 100%;
   height: 50%;
+}
+body main .search form .selector, html main .search form .selector {
+  width: 5%;
+  height: 50%;
+  border-radius: 10px;
+  margin-left: 1em;
+  cursor: pointer;
 }
 body main .containerStorePage, html main .containerStorePage {
   display: flex;

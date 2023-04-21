@@ -208,8 +208,8 @@ body,html {
 
                 
                 input {
-                    width: 70%;
-                    height: 70%;
+                    width: 30%;
+                    height: 50%;
                     
                     font-size: 2em;
                     font-family: 'Dancing Script',cursive;
@@ -236,6 +236,19 @@ body,html {
                     }
 
                     
+
+                }
+                .selector  {
+                    width: 5%;
+                    height: 50%;
+                    border-radius: 10px;
+                    margin-left: 1em;
+                    cursor: pointer;
+
+                    //position : absolute;
+                    
+                    
+
 
                 }
 

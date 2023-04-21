@@ -13,6 +13,13 @@ const carrito = document.querySelector('#carrito');
 
 const priceTotal = document.querySelector('.totalPriceCar');
 
+const numberOfProducts = document.querySelector('#limitOfProducts');
+console.log(numberOfProducts.value);
+let limit = 20; 
+//numberOfProducts.value;
+
+
+
 let numberOfItemsToBuy = 0; 
 
 
@@ -49,14 +56,16 @@ cartButton.addEventListener('click',(event)=>{
    
     carrito.scrollIntoView({behavior : "smooth"});
 
-
 })
 
 
 
 function getData(){
 
-    fetch(apiFake)
+    fetch('https://fakestoreapi.com/products' +
+    `?limit=${limit}`
+
+    )
     .then(res => res.json())
     .then(data => {
 
@@ -128,8 +137,14 @@ function getData(){
 
 }
 
+numberOfProducts.addEventListener("change", ()=> {
+    limit = numberOfProducts.value;
+    console.log(limit);
+    getData();
 
-getData();
+
+});
+
 
 
 function addProductToPage(cartProducts){
@@ -201,7 +216,7 @@ function getTotalToPay(cart){
 
     cart.forEach(element => {
 
-        if (element.length !== 0) {  /////////////////cambie esto y ya funcionaba bien 
+        if (element.length !== 0) {  /////////////////cambie esto y ya funcionaba bien  
 
         let totalCElement = 0; 
         let quantifyC = 0;
@@ -234,12 +249,13 @@ function totalItemsCar(){
     //console.log(numberOfItemsToBuy);
 
     const elements = document.querySelector('.elements-cart-span');
+    //console.log(cart.length + "here");
 
     elements.innerHTML = numberOfItemsToBuy;
 
-    
-
 }
+
+
 function removeItemOfCar (cartsent,index) {
     cartsent.splice(index,1, ""); //remove the element of the cart , but just the object, aslo we need figure out how eliminated the HTML element
     cart = cartsent;
@@ -253,6 +269,7 @@ function removeItemOfCar (cartsent,index) {
         cart = [];
 
     }
+
     if (cart.every(element => !element)){
 
         cart = [];
@@ -271,7 +288,11 @@ function removeItemOfCar (cartsent,index) {
 
     containerCarTwo.innerHTML = cardTwoNew;*/
 
-   
+    numberOfItemsToBuy--;
+    const elements = document.querySelector('.elements-cart-span');
+    //console.log(cart.length + "here");
+
+    elements.innerHTML = numberOfItemsToBuy;
     
     
 }
