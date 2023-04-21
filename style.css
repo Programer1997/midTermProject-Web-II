@@ -178,6 +178,7 @@ body main .containerStorePage, html main .containerStorePage {
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: 2%;
 }
 body main .containerStorePage .containerProducts, html main .containerStorePage .containerProducts {
   background-color: #fff;
