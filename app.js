@@ -18,7 +18,7 @@ let numberOfItemsToBuy = 0;
 
 
 
-const cart = [];
+var cart = [];
 
 function addProductToCart (product){
 
@@ -32,7 +32,8 @@ function addProductToCart (product){
     img : product.image,
     name : product.title,
     price : product.price,
-    quantify : 1
+    quantify : 1,
+    id : product.id
    };
  }
 }
@@ -44,6 +45,8 @@ cartButton.addEventListener('click',(event)=>{
 
     console.log(cart);
 
+    //console.log(removeItem);
+   
     carrito.scrollIntoView({behavior : "smooth"});
 
 
@@ -100,22 +103,17 @@ function getData(){
         container.innerHTML=card;
 
         const addCarButton = document.querySelectorAll(".addCart");
+        //console.log(addCarButton);
+
 
         addCarButton.forEach((button,index)=>{
 
             button.addEventListener("click",()=>{
 
-                addProductToCart(info[index]);
+                addProductToCart(info[index]); //anade el producto al arreglo de objetos del carrito, solo lo puedo ver yo es info que no se refleja HTML hasta despues de otras funciones
                 addProductToPage(cart);
                 getTotalToPay(cart);
                 totalItemsCar();
-
-                
-
-                
-
-
-                
 
                // console.log(index);
                 //console.log("hola");
@@ -141,21 +139,56 @@ function addProductToPage(cartProducts){
     let cardsitem = "";
 
     cartProducts.forEach(element=>{
+
         let priceQtyItem = element.quantify*element.price;
         //console.log(priceQtyItem);
+        //console.log(element);
         cardsitem += `
         <div class="carItemIndividual">
             <img src = "${element.img}"/>
             <h4>${element.name.slice(0,12)+ "..."}</h4>
             <p>Qty : ${element.quantify}</p>
             <h3>${priceQtyItem + " $"}</h3>
+            <button id = "buttonRemove" value="${element.id}"><i class="fa-solid fa-trash"></i></button>
         </div>
     `;
     });
 
     containerCar.innerHTML = cardsitem; 
-}
 
+  
+    const removeItem = document.querySelectorAll('#buttonRemove');
+    //console.log(removeItem);
+    //console.log(cart);
+
+    removeItem.forEach((element,index,array)=> {
+        //console.log(element); //show the button element Html
+        //console.log(index);
+        //console.log(cart);
+        //console.log(element.value);
+        console.log(array);  //array of buttons 
+
+        element.addEventListener("click",(event)=> {
+            //event.preventDefault();*/
+
+            //Magic jeje xD
+           /*var indexProduct = cart.findIndex(function (product) {
+
+                if (product !== undefined) {
+                    //console.log(product);
+                    return product.id = element.value;
+                }
+                
+            });
+            console.log(indexProduct); */
+            //const cartWithoutEmptys = cart.filter(Boolean);
+            removeItemOfCar(cartProducts,element.value);
+            //console.log(cart);
+            //console.log('hola');
+            element.parentElement.remove();
+        });
+    });
+}
 function getTotalToPay(cart){
 
      const priceToPay = document.querySelector('.totalPriceCar');
@@ -202,6 +235,72 @@ function totalItemsCar(){
     
 
 }
+function removeItemOfCar (cartsent,index) {
+    cartsent.splice(index,1); //remove the element of the cart , but just the object, aslo we need figure out how eliminated the HTML element
+    cart = cartsent;
+
+    const containerCarProductsRemoving  = document.querySelector('.car-items');
+    const productsCarRemoving = containerCarProductsRemoving.querySelectorAll('.carItemIndividual');
+
+    console.log(productsCarRemoving.length-1);
+
+    if (productsCarRemoving.length-1 == 0) {
+        cart = [];
+
+    }
+    if (cart.every(element => !element)){
+
+        cart = [];
+        //cart.splice(0,cart.length);
+
+    }
+    console.log(cart);
+    /*
+    const containerCarTwo = document.querySelector('.car-items');
+
+    let cardTwoNew = "";
+
+
+    containerCarTwo.innerHTML = cardTwoNew;*/
+
+   
+    
+    
+}
+
+
+
+
+////////////////////////////////////////////////////////
+/*function eliminarItemCarrito(event){
+    var buttonClicked = event.target;
+    buttonClicked.parentElement.parentElement.remove();
+    //Actualizamos el total del carrito
+    actualizarTotalCarrito();
+
+    //la siguiente funciòn controla si hay elementos en el carrito
+    //Si no hay elimino el carrito
+    //ocultarCarrito();
+}
+/*
+
+function ready(){
+    //Agregremos funcionalidad a los botones eliminar del carrito
+    var botonesEliminarItem = document.getElementsByClassName('btn-eliminar');
+    for(var i=0;i<botonesEliminarItem.length; i++){
+        var button = botonesEliminarItem[i];
+        button.addEventListener('click',eliminarItemCarrito);
+    }
+}
+
+ready();
+*/
+
+
+
+   
+
+
 
 
 

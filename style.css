@@ -277,6 +277,10 @@ body main .containerStorePage .car .car-items .carItemIndividual img, html main 
   width: 10%;
   height: 10%;
 }
+body main .containerStorePage .car .car-items .carItemIndividual button, html main .containerStorePage .car .car-items .carItemIndividual button {
+  border: none;
+  cursor: pointer;
+}
 body main .containerStorePage .car .totalCar, html main .containerStorePage .car .totalCar {
   background-color: #f3f3f3;
   padding: 30px;
